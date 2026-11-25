@@ -1,10 +1,9 @@
-import os
 from urllib.parse import urlencode
 
 import requests
 import streamlit as st
 
-BASE_URL = os.environ["API_URL"]
+BASE_URL = st.secrets["API_URL"]
 
 
 def build_request_url() -> str:
