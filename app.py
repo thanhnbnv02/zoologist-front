@@ -1,14 +1,15 @@
+import os
 from urllib.parse import urlencode
 
 import requests
 import streamlit as st
 
-BASE_URL = "http://localhost:8000/predict"
+BASE_URL = os.environ["API_URL"]
 
 
 def build_request_url() -> str:
     url_params = _ask_user()
-    return f"{BASE_URL}?{urlencode(url_params)}"
+    return f"{BASE_URL}/predict?{urlencode(url_params)}"
 
 
 def _ask_user() -> dict[str, str]:
